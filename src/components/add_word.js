@@ -87,16 +87,25 @@ class AddWord extends Component {
       </div>
     )
 
-    return added ? (
-      <a
-        title="点击加入扇贝词库"
-        style={styles.container}
-        href={SHANBAY_URL}
-        target="_blank"
-      >
-        {content}
-      </a>
-    ) : (
+    // return added ? (
+    //   <a
+    //     title="点击加入扇贝词库"
+    //     style={styles.container}
+    //     href={SHANBAY_URL}
+    //     target="_blank"
+    //   >
+    //     {content}
+    //   </a>
+    // ) : (
+    //   <div
+    //     title="点击加入扇贝词库"
+    //     style={styles.container}
+    //     onClick={addWord}
+    //   >
+    //     {content}
+    //   </div>
+    // )
+    return (
       <div
         title="点击加入扇贝词库"
         style={styles.container}

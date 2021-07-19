@@ -53,7 +53,29 @@ function clearShanbayToken() {
   oauth.clearToken()
 }
 
+async function addToMyShan(data, sendRes) {
+  await fetch('https://apiv3.shanbay.com/wordscollection/words_bulk_upload', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      business_id: 6,
+      words: [data],
+    }),
+  }).then(res => res.json()).then((res) => {
+    sendRes({
+      success: true,
+    })
+  })
+}
+
 async function addWordToShanbay(data, sendRes) {
+
+  addToMyShan(data, sendRes)
+
+  return
+
   // redirect
   if (!oauth.token_valid()) {
     await authorize()
