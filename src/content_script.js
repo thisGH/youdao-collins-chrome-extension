@@ -66,7 +66,7 @@ function getPosition(selection) {
   }
 
   const elem = range.startContainer.firstElementChild
-  if (elem !== undefined) {
+  if (elem) {
     if (elem.nodeName === 'INPUT' || elem.nodeName === 'TEXTAREA') {
       const { top, left } = elem.getBoundingClientRect()
       const rectStart = getCaretCoordinates(elem, elem.selectionStart)
@@ -84,7 +84,7 @@ function getPosition(selection) {
     rect = range.getBoundingClientRect()
   }
 
-  const { top, left, width } = rect
+  const { top = 0, left = 0, width = 100 } = rect || {}
 
   return {
     left: left + window.pageXOffset + width / 2,
